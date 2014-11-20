@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SNAPPREFS</string>
+    <string name="pref_general_title">GENERAL SETTINGS</string> 
+    <string name="pref_received_title">RECEIVED SNAPS</string>
+	<string name="pref_sent_title">SENT SNAPS</string> 
+	<string name="pref_colour_title">COLOUR SETTINGS</string>
+
+	<string name="hidebf_text">Hide Best-Friends</string>
+	<string name="hidebf_summary">Hides your Best-Friends from you</string>
+	<string name="hiderecent_text">Hide Recents</string>
+	<string name="hiderecent_summary">Hides people who you recently sent a snap to</string>
+	
+	<string name="screenshot_text">Screenshot Detection</string>
+	<string name="screenshot_text_summary">Blocks the screenshot reporting</string>
+	
+	<string name="full_text">Unlimited Text</string>   
+	<string name="full_text_summary">Enables unlimited text for the captions</string>
+	
+	<string name="rainbow_text">Rainbow text</string>
+	<string name="rainbow_text_summary">Makes each letter separately colored</string>
+	<string name="txtcolour_text">Text colour customizations</string>
+	<string name="txtstyle_text">Custom text styles</string>
+	<string name="txtstyle_text_summary">Enables bold, italic and both styles</string>
+	<string name="txtgravity_text">Text gravity</string>
+	<string name="txtgravity_text_summary">Enables changes to the alignment of the text</string>
+	<string name="bgcolour_text">Background colour customization</string>
+	<string name="bg_transparency_text">Background opacity customization</string>
+	<string name="size_text">Text-size customization</string>
+	<string name="transparency_text">Caption opacity customization</string>
+	
+	<string name="copyright">SnapPrefs v1.0</string>
+	
+    <string name="button_label">OK</string>
+    <string name="pref_name">Pick a color</string>
+    <string name="pref_summary">DialogPreference with Color Picker.</string>
+    <string name="dialog_default">Default</string>
+    
+    <string name="dialog_txtcolor">Text Colour</string>
+    <string name="dialog_bgcolor">BG Colour</string>
+</resources>
