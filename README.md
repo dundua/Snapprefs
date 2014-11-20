@@ -4,18 +4,31 @@ Overview
 -------
 Snapprefs is a project which offers enhanced features for Snapchat thru the [Xposed framework](http://forum.xda-developers.com/showthread.php?t=1574401).
 Current features are:
+
 -Hiding best friends
+
 -Hiding recents
+
 -Screenshot detection bypass for chat messages, images and videos
+
 -Unlimited caption text
+
 -Text
+
 --Color(HSV)
+
 --Alignment(left, center, right)
+
 --Size(1-250)
+
 --Style(bold, italic, bold and italic, normal)
+
 --Rainbow text(makes each letter separatedly colored)
+
 -Background
+
 --Color(HSV)
+
 --Opacity(0%-100%)
 
 -Caption opacity customization
@@ -24,8 +37,11 @@ Credits
 -------
 
 [Keepchat for their amazing work](https://github.com/P1nGu1n/Keepchat)
+
 [Snapshare for their amazing work](https://github.com/P1nGu1n/Snapshare)
+
 manvir for his inspirating [SnapColors app](http://repo.xposed.info/module/com.manvir.snapcolors)
+
 elesbb for his inspirating [SnapChat Full Caption app](http://repo.xposed.info/module/com.elesbb.snapchatfullcaption)
 
 
