@@ -46,6 +46,9 @@ elesbb for his inspirating [SnapChat Full Caption app](http://repo.xposed.info/m
 
 chiralcode for his [ColorPicker](https://github.com/chiralcode/Android-Color-Picker)
 
+[Yoganandh for his color collection](https://gist.github.com/VenomVendor/6857539)
+
+
 Installation
 ------------------
 *Note: Obviously, you need __root access__ on your phone.*
