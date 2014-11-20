@@ -44,6 +44,7 @@ manvir for his inspirating [SnapColors app](http://repo.xposed.info/module/com.m
 
 elesbb for his inspirating [SnapChat Full Caption app](http://repo.xposed.info/module/com.elesbb.snapchatfullcaption)
 
+chiralcode for his [ColorPicker](https://github.com/chiralcode/Android-Color-Picker)
 
 Installation
 ------------------
