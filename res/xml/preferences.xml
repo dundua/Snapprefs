@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceScreen
+        android:key="button_general_settings"
+        android:title="@string/general"
+        android:persistent="false">
     <PreferenceCategory
         android:key="pref_key_general"
         android:title="@string/pref_general_title">
@@ -30,9 +34,15 @@
         android:title="@string/pref_sent_title">
         <CheckBoxPreference
             android:defaultValue="false"
-            android:key="pref_key_fulltext"
-            android:title="@string/full_text"
-            android:summary="@string/full_text_summary"
+            android:key="pref_key_selectall"
+            android:title="@string/select_text"
+            android:summary="@string/select_text_summary"
+            />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_key_selectstory"
+            android:title="@string/selectstory_text"
+            android:summary="@string/selectstory_text_summary"
             />
     </PreferenceCategory>
     <PreferenceCategory
@@ -81,5 +91,174 @@
             android:key="pref_key_transparency"
             android:title="@string/transparency_text"
             />
+    </PreferenceCategory>
+    </PreferenceScreen>
+        <PreferenceScreen
+        android:key="button_saving_settings"
+        android:title="@string/saving"
+        android:persistent="false">
+     <PreferenceCategory android:title="@string/pref_category_snapchats">
+        <com.marz.snapprefs.BetterListPreference
+            android:defaultValue="@string/pref_save_snapchats_default"
+            android:dialogTitle="@string/pref_save_snaps_images"
+            android:entries="@array/pref_save_mode_entries"
+            android:entryValues="@array/pref_save_mode_values"
+            android:key="pref_key_snaps_images"
+            android:title="@string/pref_save_snaps_images" />
+
+        <com.marz.snapprefs.BetterListPreference
+            android:defaultValue="@string/pref_save_snapchats_default"
+            android:dialogTitle="@string/pref_save_snaps_videos"
+            android:entries="@array/pref_save_mode_entries"
+            android:entryValues="@array/pref_save_mode_values"
+            android:key="pref_key_snaps_videos"
+            android:title="@string/pref_save_snaps_videos" />
+
+        <com.marz.snapprefs.BetterListPreference
+            android:defaultValue="@string/pref_save_snapchats_default"
+            android:dialogTitle="@string/pref_save_stories_images"
+            android:entries="@array/pref_save_mode_entries"
+            android:entryValues="@array/pref_save_mode_values"
+            android:key="pref_key_stories_images"
+            android:title="@string/pref_save_stories_images" />
+
+        <com.marz.snapprefs.BetterListPreference
+            android:defaultValue="@string/pref_save_snapchats_default"
+            android:dialogTitle="@string/pref_save_stories_videos"
+            android:entries="@array/pref_save_mode_entries"
+            android:entryValues="@array/pref_save_mode_values"
+            android:key="pref_key_stories_videos"
+            android:title="@string/pref_save_stories_videos" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_key_save_sent_snaps"
+            android:summaryOff="@string/pref_save_sent_snaps_summary_off"
+            android:summaryOn="@string/pref_save_sent_snaps_summary_on"
+            android:title="@string/pref_save_sent_snaps_title" />
+    </PreferenceCategory>
+    
+    <PreferenceCategory android:title="@string/pref_category_viewing">
+        <com.marz.snapprefs.BetterListPreference
+            android:defaultValue="@string/pref_timer_minimum_default_value"
+            android:entries="@array/pref_timer_minimum_entries"
+            android:entryValues="@array/pref_timer_minimum_values"
+            android:key="pref_key_timer_minimum"
+            android:title="@string/pref_timer_minimum_title" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_key_toasts_checkbox"
+            android:summaryOff="@string/pref_toasts_summary_off"
+            android:summaryOn="@string/pref_toasts_summary_on"
+            android:title="@string/pref_toasts_title" />
+
+        <com.marz.snapprefs.BetterListPreference
+            android:defaultValue="@string/pref_toasts_duration_default_value"
+            android:dependency="pref_key_toasts_checkbox"
+            android:entries="@array/pref_toasts_duration_entries"
+            android:entryValues="@array/pref_toasts_duration_values"
+            android:key="pref_key_toasts_duration"
+            android:title="@string/pref_toasts_duration_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_category_folder">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_key_sort_files_mode"
+            android:summaryOff="@string/pref_sort_files_mode_summary_off"
+            android:summaryOn="@string/pref_sort_files_mode_summary_on"
+            android:title="@string/pref_sort_files_mode_title" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_key_sort_files_username"
+            android:summaryOff="@string/pref_sort_files_username_summary_off"
+            android:summaryOn="@string/pref_sort_files_username_summary_on"
+            android:title="@string/pref_sort_files_username_title" />
+
+    </PreferenceCategory>
+     </PreferenceScreen>
+     <PreferenceScreen
+        android:key="button_sharing_settings"
+        android:title="@string/sharing"
+        android:persistent="false">
+    <PreferenceCategory android:title="@string/pref_media">
+        <ListPreference
+            android:defaultValue="@string/pref_rotation_default"
+            android:dialogTitle="@string/pref_rotation_title"
+            android:entries="@array/pref_rotation_entries"
+            android:entryValues="@array/pref_rotation_values"
+            android:key="pref_rotation"
+            android:title="@string/pref_rotation_title" />
+
+        <ListPreference
+            android:defaultValue="@string/pref_adjustment_default"
+            android:dialogTitle="@string/pref_adjustment_title"
+            android:entries="@array/pref_adjustment_entries"
+            android:entryValues="@array/pref_adjustment_values"
+            android:key="pref_adjustment"
+            android:title="@string/pref_adjustment_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_caption">
+        <Preference
+            android:key="pref_caption_explanation"
+            android:summary="@string/pref_caption_explanation" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_caption_unlimited_vanilla"
+            android:summaryOff="@string/pref_caption_unlimited_vanilla_off"
+            android:summaryOn="@string/pref_caption_unlimited_vanilla_on"
+            android:title="@string/pref_caption_unlimited_vanilla_title" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="pref_caption_unlimited_fat"
+            android:summaryOff="@string/pref_caption_unlimited_fat_off"
+            android:summaryOn="@string/pref_caption_unlimited_fat_on"
+            android:title="@string/pref_caption_unlimited_fat_title" />
+    </PreferenceCategory>
+         
+    </PreferenceScreen>
+    <PreferenceCategory
+        android:key="pref_key_debug"
+        android:title="@string/pref_debug_title">
+         <CheckBoxPreference
+             android:defaultValue="false"
+             android:key="pref_key_debug"
+             android:title="@string/debug_text"
+             />
+         <Preference
+             android:defaultValue="false"
+             android:key="pref_key_version"
+             android:title="@string/version_text"
+             android:summary="@string/version_summary"
+             android:enabled="false"/>
+                 <Preference
+            android:key="pref_donate"
+            android:title="@string/pref_donate_title"
+            android:summary="@string/pref_donate_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=SL45E99ZBUUCQ"/>
+         </Preference>
+
+        <Preference
+            android:key="pref_support"
+            android:title="@string/pref_support_title"
+            android:summary="@string/pref_support_summary">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://forum.xda-developers.com/showthread.php?t=2947254"/>
+        </Preference>
+        <Preference
+            android:key="pref_thanks"
+            android:title="@string/pref_thanks_title"
+            android:summary="@string/pref_thanks_summary"
+            android:enabled="false"/>
+        
     </PreferenceCategory>
 </PreferenceScreen>

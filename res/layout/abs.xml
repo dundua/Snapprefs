@@ -13,6 +13,5 @@
         android:textStyle="bold"
         android:textSize="30dp"
         android:textColor="@color/white"
-        
         />
 </LinearLayout>

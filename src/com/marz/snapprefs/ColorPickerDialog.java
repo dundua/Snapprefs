@@ -1,5 +1,4 @@
-﻿package com.marz.snapprefs;
-
+package com.marz.snapprefs;
 
 import android.app.AlertDialog;
 import android.content.Context;

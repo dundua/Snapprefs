@@ -4,7 +4,36 @@ public final class Common {
 	final static String basename="com.snapchat.android";
 	final static String PACKAGE_SNAP="com.snapchat.android";
 	
-	//values for 8.0.0
+    // Debugging settings
+    public static final String LOG_TAG = "Snapshare: ";
+
+    // Adjustment methods
+    public static final int ADJUST_CROP = 0;
+    public static final int ADJUST_SCALE = 1;
+    public static final int ADJUST_NONE = 2;
+
+    // Rotation modes
+    public static final int ROTATION_NONE = 0;
+    public static final int ROTATION_CW = 90;
+    public static final int ROTATION_CCW = 270;
+
+    // Preferences and their default values
+    public static int ROTATION_MODE = ROTATION_CW;
+    public static int ADJUST_METHOD = ADJUST_CROP;
+    public static boolean CAPTION_UNLIMITED_VANILLA = false;
+    public static boolean CAPTION_UNLIMITED_FAT = false;
+    public static boolean DEBUGGING = true;
+    public static boolean CHECK_SIZE = true;
+    public static boolean TIMBER = false;
+
+    // Maximum video size setting (2.50 MB)
+    public static final int MAX_VIDEO_SIZE = (int) (2.50 * 1024 * 1024);
+	
+	final static String VERSION_CODE="6";
+	final static String VERSION_NUMBER="1.3.1";
+	final static String VERSION_NAME="1.3.1";
+	
+	//values for 9.1.0.0 Class_Screenshot, Class_ScreenshotDetector,
 	final static String Class_Screenshot= basename + ".model.ReceivedSnap";
 	final static String Class_CaptionView= basename + ".ui.VanillaCaptionView";
 	final static String Class_EditText= Class_CaptionView + "$VanillaCaptionEditText";
@@ -14,14 +43,28 @@ public final class Common {
 	final static String Class_StateBuilder= basename + ".model.server.chat.SnapStateMessage.Builder";
 	final static String Class_CaptionEditText= basename + ".ui.SnapCaptionView.CaptionEditText";
 	final static String Class_Landing= basename + ".LandingPageActivity";
+	final static String Class_SendToFragment= basename + ".fragments.sendto.SendToFragment";
+	final static String Class_PostToStory= basename + ".model.MyPostToStory";
+	final static String Class_SnapPreviewFragment = basename + ".SnapPreviewFragment";
 	
 	final static String Method_Screenshot="z";
 	final static String Method_AfterTextChanged="afterTextChanged";
-	final static String Method_BestFriend="v";
+	final static String Method_BestFriend="v"; //w or v
 	final static String Method_Recent="x";
 	final static String Method_DetectionSession="a";
 	final static String Method_ScreenshotCount="setScreenshotCount";
 	final static String Method_onCreate= "onCreate";
+	final static String Method_AddToList= "b";
+	final static String Method_CreateView= "h";
+	final static String Method_Invisible="p";
+	final static String Method_Visible="o";
+	final static String Method_onActivityCreated="onActivityCreated";
+	
+	final static String pictureX="o";
+	final static String titleSendTo="c";
+	final static String sendToList="d";
+	final static String sendToFriendSet="l";
+	final static String sendToStoryList="m";
 	
 	final static String Res_OFatCaption="caption_edit_text_fat_cap";
 	final static String Res_OVanillaCaption="caption_edit_text_vanilla_cap";
@@ -48,6 +91,8 @@ public final class Common {
 	final static String dialog_left="Left";
 	final static String dialog_center="Center";
 	final static String dialog_right="Right";
+	
+	final static String select_name="selectCheckBox";
 	
 	final static String[] colors = {
 		"#64E986",
