@@ -107,11 +107,11 @@ public class Obfuscator {
 
     // com.snapchat.android.model.AnnotatedMediabryo
     // AnnotatedMediabryo.getImageBitmap()
-    public static final String MEDIABRYO_GETSNAPBITMAP = "w"; //prev. x
+    public static final String MEDIABRYO_GETSNAPBITMAP = "A"; //prev. w, x
 
     // com.snapchat.android.model.Mediabryo
     // Mediabryo.getVideoUri()
-    public static final String MEDIABRYO_VIDEOURI = "D"; //prev. E
+    public static final String MEDIABRYO_VIDEOURI = "H"; //prev. D,E
 
     // ImageResourceView Class
     public static final String IMAGERESOURCEVIEW_CLASS = "com.snapchat.android.ui.ImageResourceView";

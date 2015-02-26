@@ -43,7 +43,7 @@
 	<string name="transparency_text">Caption opacity customization</string>
 	<string name="debug_text">Debug mode</string>
 	<string name="version_text">Version</string>
-	<string name="version_summary">Current version is: v1.3.1</string>
+	<string name="version_summary">Current version is: v1.4.0</string>
 	<string name="general">General settings</string>
 	<string name="saving">Saving settings</string>
 	<string name="sharing">Sharing settings</string>
@@ -122,6 +122,7 @@
 
 
 <string name="pref_category_folder">Folder</string>
+<string name="pref_hide_location_title">Hide a folder</string>
 <string name="pref_save_location_title">Saving location</string>
 <string name="pref_sort_files_mode_title">Sort files by category</string>
 <string name="pref_sort_files_mode_summary_on">Snaps and stories will be saved into different folders</string>
@@ -134,10 +135,14 @@
 
 <string name="image_exists">This image already exists.</string>
 <string name="video_exists">This video already exists.</string>
+<string name="nomedia_exists">This folder is already hidden.</string>
 <string name="image_saved">This image has been saved.</string>
 <string name="video_saved">This video has been saved.</string>
+<string name="nomedia_saved">This folder has been hidden.</string>
 <string name="image_not_saved">An error occurred while saving this image.</string>
 <string name="video_not_saved">An error occurred while saving this video.</string>
+<string name="nomedia_error">An error occurred while hiding this folder.</string>
+<string name="nomedia_storage">Unable to write to the storage.</string>
 
 <!-- Dialogs -->
     <string name="module_not_enabled">Snapshare is not enabled. Please enable it in Xposed Installer and reboot your device.</string>

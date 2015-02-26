@@ -55,8 +55,8 @@ public final class Common {
 	final static String Method_ScreenshotCount="setScreenshotCount";
 	final static String Method_onCreate= "onCreate";
 	final static String Method_AddToList= "b";
-	final static String Method_CreateView= "h";
-	final static String Method_Invisible="p";
+	final static String Method_CreateView= "i"; // prev. h
+	final static String Method_Invisible="q"; //prev. p
 	final static String Method_Visible="o";
 	final static String Method_onActivityCreated="onActivityCreated";
 	

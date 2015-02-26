@@ -162,16 +162,6 @@ public class HookMethods implements IXposedHookInitPackageResources, IXposedHook
         modRes = XModuleResources.createInstance(MODULE_PATH, resparam.res);
         refreshPreferences();
 		printSettings();	
-		//SNAPPREFS
-		
-		if (fullCaption == true){
-        logging("SnapPrefs: Hooked Snapchat's resources.");
-        XModuleResources modRes = XModuleResources.createInstance(MODULE_PATH, resparam.res);
-        resparam.res.setReplacement(Common.PACKAGE_SNAP, "layout", Common.Res_OFatCaption, modRes.fwd(R.layout.new_caption_fat));
-        logging("SnapPrefs: Replaced fat-caption resources.");
-        resparam.res.setReplacement(Common.PACKAGE_SNAP, "layout", Common.Res_OVanillaCaption, modRes.fwd(R.layout.new_vanilla_cap));
-        logging("SnapPrefs: Replaced vanilla-caption resources.");
-		}
 		
 		if (colours == true){
 			addGhost(resparam);
@@ -718,18 +708,6 @@ public class HookMethods implements IXposedHookInitPackageResources, IXposedHook
                 }
             });
 
-
-            /**
-             * Always return false when asked if an ReceivedSnap was screenshotted.
-             */
-            findAndHookMethod(Obfuscator.RECEIVEDSNAP_CLASS, lpparam.classLoader, Obfuscator.RECEIVEDSNAP_ISSCREENSHOTTED, XC_MethodReplacement.returnConstant(false));
-
-            /**
-             * Prevent creation of the ScreenshotDetector class.
-             */
-            findAndHookMethod(Obfuscator.SCREENSHOTDETECTOR_CLASS, lpparam.classLoader, Obfuscator.SCREENSHOTDETECTOR_RUNDECTECTIONSESSION, List.class, long.class,
-                    XC_MethodReplacement.DO_NOTHING);
-
         } catch (Exception e) {
             Logger.log("Error occured: Snapprefs doesn't currently support this version, wait for an update", e);
 
@@ -768,20 +746,6 @@ public class HookMethods implements IXposedHookInitPackageResources, IXposedHook
 				return false;
             }
 			});	
-		}
-		
-		if (fullCaption == true){
-			findAndHookMethod("com.snapchat.android.ui.caption.VanillaCaptionView", lpparam.classLoader, "a", Context.class, new XC_MethodHook(){
-				@Override
-				protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-					EditText editText = HookMethods.editText;
-					Object[] arrobject = new Object[]{(TextWatcher)XposedHelpers.findField(HookMethods.this.CaptionEditText, "l").get(param.getResult())};
-					XposedHelpers.callMethod(editText, "removeTextChangedListener", arrobject);
-					editText.setSingleLine(false);
-					editText.setImeOptions(EditorInfo.IME_FLAG_NO_ENTER_ACTION);
-					}
-				}
-			);
 		}
 		if (hideBf == true){
 		findAndHookMethod(Common.Class_Friend, lpparam.classLoader, Common.Method_BestFriend, new XC_MethodReplacement(){

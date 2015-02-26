@@ -163,7 +163,16 @@
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/pref_category_folder">
-
+        <Preference
+            android:defaultValue="-1"
+            android:key="pref_key_hide_location"
+            android:persistent="true"
+            android:title="@string/pref_hide_location_title" />
+		<Preference
+            android:defaultValue="-1"
+            android:key="pref_key_save_location"
+            android:persistent="true"
+            android:title="@string/pref_save_location_title" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_key_sort_files_mode"
