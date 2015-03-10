@@ -5,7 +5,7 @@ public final class Common {
 	final static String PACKAGE_SNAP="com.snapchat.android";
 	
     // Debugging settings
-    public static final String LOG_TAG = "Snapshare: ";
+    public static final String LOG_TAG = "SnapPrefs: ";
 
     // Adjustment methods
     public static final int ADJUST_CROP = 0;
@@ -29,11 +29,10 @@ public final class Common {
     // Maximum video size setting (2.50 MB)
     public static final int MAX_VIDEO_SIZE = (int) (2.50 * 1024 * 1024);
 	
-	final static String VERSION_CODE="6";
-	final static String VERSION_NUMBER="1.3.1";
-	final static String VERSION_NAME="1.3.1";
+	final static String VERSION_CODE="9";
+	final static String VERSION_NAME="1.4.2";
 	
-	//values for 9.1.0.0 Class_Screenshot, Class_ScreenshotDetector,
+	//values for 9.3.1.0 Class_Screenshot, Class_ScreenshotDetector,
 	final static String Class_Screenshot= basename + ".model.ReceivedSnap";
 	final static String Class_CaptionView= basename + ".ui.VanillaCaptionView";
 	final static String Class_EditText= Class_CaptionView + "$VanillaCaptionEditText";
@@ -50,21 +49,21 @@ public final class Common {
 	final static String Method_Screenshot="z";
 	final static String Method_AfterTextChanged="afterTextChanged";
 	final static String Method_BestFriend="v"; //w or v
-	final static String Method_Recent="x";
+	final static String Method_Recent="w"; //prev x
 	final static String Method_DetectionSession="a";
 	final static String Method_ScreenshotCount="setScreenshotCount";
 	final static String Method_onCreate= "onCreate";
 	final static String Method_AddToList= "b";
-	final static String Method_CreateView= "i"; // prev. h
-	final static String Method_Invisible="q"; //prev. p
-	final static String Method_Visible="o";
+	final static String Method_CreateView= "k"; // prev. i, h
+	final static String Method_Invisible="t"; //prev. q, p
+	final static String Method_Visible="q"; //prev. o
 	final static String Method_onActivityCreated="onActivityCreated";
 	
 	final static String pictureX="o";
-	final static String titleSendTo="c";
-	final static String sendToList="d";
-	final static String sendToFriendSet="l";
-	final static String sendToStoryList="m";
+	final static String titleSendTo="d"; //prev. c
+	final static String sendToList="e"; //prev. d
+	final static String sendToFriendSet="m"; //prev. l
+	final static String sendToStoryList="n"; //prev. m
 	
 	final static String Res_OFatCaption="caption_edit_text_fat_cap";
 	final static String Res_OVanillaCaption="caption_edit_text_vanilla_cap";

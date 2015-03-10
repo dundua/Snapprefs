@@ -21,7 +21,6 @@ package com.marz.snapprefs.Util;
  * a gazillion times. If not, see <http://www.gnu.org/licenses/>.
  */
 
-import com.marz.snapprefs.BuildConfig;
 import com.marz.snapprefs.Common;
 
 import de.robv.android.xposed.XSharedPreferences;

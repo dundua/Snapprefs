@@ -20,15 +20,6 @@
             android:summary="@string/hiderecent_summary"
             />
     </PreferenceCategory>
-     <PreferenceCategory
-        android:key="pref_key_received"
-        android:title="@string/pref_received_title" >
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_key_screenshot"
-            android:title="@string/screenshot_text"
-            android:summary="@string/screenshot_text_summary" />
-    </PreferenceCategory>
     <PreferenceCategory
         android:key="pref_key_sent"
         android:title="@string/pref_sent_title">
@@ -254,7 +245,11 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=SL45E99ZBUUCQ"/>
          </Preference>
-
+        <Preference
+            android:key="pref_add"
+            android:title="@string/pref_update_title"
+            android:summary="@string/pref_update_summary"
+            android:enabled="false"/>
         <Preference
             android:key="pref_support"
             android:title="@string/pref_support_title"
@@ -268,6 +263,5 @@
             android:title="@string/pref_thanks_title"
             android:summary="@string/pref_thanks_summary"
             android:enabled="false"/>
-        
     </PreferenceCategory>
 </PreferenceScreen>

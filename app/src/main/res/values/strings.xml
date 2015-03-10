@@ -8,7 +8,7 @@
 	<string name="pref_debug_title">INFORMATIONS</string>
 	
 	<string name="pref_thanks_title">Thanks to</string>
-	<string name="pref_thanks_summary">P1ngu1n, manvir, elesbb, chiralcode, Yoganandh</string>
+	<string name="pref_thanks_summary">P1ngu1n, manvir, elesbb, chiralcode, Yoganandh, bnalls33</string>
 	    <string name="pref_donate_title">Donate</string>
     <string name="pref_donate_summary">Support me by buying some coffee using PayPal. Donations are highly appreciated.</string>
 
@@ -42,8 +42,10 @@
 	<string name="size_text">Text-size customization</string>
 	<string name="transparency_text">Caption opacity customization</string>
 	<string name="debug_text">Debug mode</string>
+    <string name="pref_update_title">To get the latest updates</string>
+    <string name="pref_update_summary">Add \'snapprefs\' on Snapchat</string>
 	<string name="version_text">Version</string>
-	<string name="version_summary">Current version is: v1.4.0</string>
+	<string name="version_summary" translatable="false">Current version is: v1.4.2</string>
 	<string name="general">General settings</string>
 	<string name="saving">Saving settings</string>
 	<string name="sharing">Sharing settings</string>

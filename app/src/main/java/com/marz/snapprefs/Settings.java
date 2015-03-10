@@ -1,8 +1,5 @@
 package com.marz.snapprefs;
-import java.io.File;
-import java.io.FileOutputStream;
 
-import net.rdrei.android.dirchooser.DirectoryChooserActivity;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
@@ -15,7 +12,14 @@ import android.os.Environment;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.widget.Toast;
+import android.util.Log;
+
+import net.rdrei.android.dirchooser.DirectoryChooserActivity;
+
+import java.io.File;
+import java.io.FileOutputStream;
+
+import de.robv.android.xposed.XposedBridge;
 
 public class Settings extends PreferenceFragment {
     private static XModuleResources mResources;

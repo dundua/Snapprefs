@@ -1,16 +1,11 @@
 package com.marz.snapprefs;
 
-import java.util.Random;
-
-import de.robv.android.xposed.XSharedPreferences;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
-
 import android.text.Html;
 import android.view.Gravity;
 import android.view.View;
@@ -19,6 +14,10 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import java.util.Random;
+
+import de.robv.android.xposed.XSharedPreferences;
 
 public class Dialogs {
 	

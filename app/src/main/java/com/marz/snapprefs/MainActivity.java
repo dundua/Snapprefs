@@ -13,7 +13,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#ff46B995"));
+		ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#00a650"));
 		getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getActionBar().setCustomView(R.layout.abs);
 		getActionBar().setBackgroundDrawable(colorDrawable);

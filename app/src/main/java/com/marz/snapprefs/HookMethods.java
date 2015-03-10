@@ -1,31 +1,5 @@
 package com.marz.snapprefs;
 
-import static de.robv.android.xposed.XposedBridge.hookAllConstructors;
-import static de.robv.android.xposed.XposedHelpers.callMethod;
-import static de.robv.android.xposed.XposedHelpers.callStaticMethod;
-import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
-import static de.robv.android.xposed.XposedHelpers.findClass;
-import static de.robv.android.xposed.XposedHelpers.getAdditionalInstanceField;
-import static de.robv.android.xposed.XposedHelpers.getObjectField;
-import static de.robv.android.xposed.XposedHelpers.newInstance;
-import static de.robv.android.xposed.XposedHelpers.removeAdditionalInstanceField;
-import static de.robv.android.xposed.XposedHelpers.setAdditionalInstanceField;
-import static de.robv.android.xposed.XposedHelpers.setObjectField;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-
-import com.marz.snapprefs.Util.CommonUtils;
-import com.marz.snapprefs.Util.ImageUtils;
-import com.marz.snapprefs.Util.VideoUtils;
-import com.marz.snapprefs.Util.XposedUtils;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
@@ -42,26 +16,31 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.text.Editable;
 import android.text.InputFilter;
-import android.text.InputType;
-import android.text.TextWatcher;
-import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.URLUtil;
-import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ImageView.ScaleType;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.RelativeLayout.LayoutParams;
+
+import com.marz.snapprefs.Util.CommonUtils;
+import com.marz.snapprefs.Util.ImageUtils;
+import com.marz.snapprefs.Util.VideoUtils;
+import com.marz.snapprefs.Util.XposedUtils;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
 import de.robv.android.xposed.IXposedHookInitPackageResources;
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.IXposedHookZygoteInit;
@@ -70,10 +49,21 @@ import de.robv.android.xposed.XC_MethodReplacement;
 import de.robv.android.xposed.XSharedPreferences;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
-import de.robv.android.xposed.XC_MethodHook.MethodHookParam;
 import de.robv.android.xposed.callbacks.XC_InitPackageResources.InitPackageResourcesParam;
 import de.robv.android.xposed.callbacks.XC_LayoutInflated;
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
+
+import static de.robv.android.xposed.XposedBridge.hookAllConstructors;
+import static de.robv.android.xposed.XposedHelpers.callMethod;
+import static de.robv.android.xposed.XposedHelpers.callStaticMethod;
+import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
+import static de.robv.android.xposed.XposedHelpers.findClass;
+import static de.robv.android.xposed.XposedHelpers.getAdditionalInstanceField;
+import static de.robv.android.xposed.XposedHelpers.getObjectField;
+import static de.robv.android.xposed.XposedHelpers.newInstance;
+import static de.robv.android.xposed.XposedHelpers.removeAdditionalInstanceField;
+import static de.robv.android.xposed.XposedHelpers.setAdditionalInstanceField;
+import static de.robv.android.xposed.XposedHelpers.setObjectField;
 
 
 public class HookMethods implements IXposedHookInitPackageResources, IXposedHookLoadPackage, IXposedHookZygoteInit  {
@@ -121,8 +111,7 @@ public class HookMethods implements IXposedHookInitPackageResources, IXposedHook
     private static final String PACKAGE_NAME = HookMethods.class.getPackage().getName();
     
     static XSharedPreferences prefs;
-    
-	private static boolean screenshot;
+
 	private static boolean fullCaption;
 	private static boolean selectAll;
 	private static boolean hideBf;
@@ -159,14 +148,14 @@ public class HookMethods implements IXposedHookInitPackageResources, IXposedHook
     public void handleInitPackageResources(InitPackageResourcesParam resparam) throws Throwable {
         if (!resparam.packageName.equals(Common.PACKAGE_SNAP))
             return;
-        modRes = XModuleResources.createInstance(MODULE_PATH, resparam.res);
+        //modRes = XModuleResources.createInstance(MODULE_PATH, resparam.res);
         refreshPreferences();
 		printSettings();	
 		
 		if (colours == true){
 			addGhost(resparam);
 		}
-    } 
+    }
 	
 	@Override
 	public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable{
@@ -188,7 +177,7 @@ public class HookMethods implements IXposedHookInitPackageResources, IXposedHook
 
             PackageInfo piSnapChat = context.getPackageManager().getPackageInfo(lpparam.packageName, 0);
             XposedUtils.log("SnapChat Version: " + piSnapChat.versionName + " (" + piSnapChat.versionCode + ")", false);
-            XposedUtils.log("Snapshare Version: " + Common.VERSION_NAME + " (" + Common.VERSION_CODE + ")", false);
+            XposedUtils.log("SnapPrefs Version: " + Common.VERSION_NAME + " (" + Common.VERSION_CODE + ")", false);
 
             snapchatVersion = Obfuscator_share.getVersion(piSnapChat.versionCode);
         } catch (Exception e) {
@@ -708,6 +697,19 @@ public class HookMethods implements IXposedHookInitPackageResources, IXposedHook
                 }
             });
 
+
+
+            /**
+             * Always return false when asked if an ReceivedSnap was screenshotted.
+             */
+            findAndHookMethod(Obfuscator.RECEIVEDSNAP_CLASS, lpparam.classLoader, Obfuscator.RECEIVEDSNAP_ISSCREENSHOTTED, XC_MethodReplacement.returnConstant(false));
+
+            /**
+             * Prevent creation of the ScreenshotDetector class.
+             */
+            findAndHookMethod(Obfuscator.SCREENSHOTDETECTOR_CLASS, lpparam.classLoader, Obfuscator.SCREENSHOTDETECTOR_RUNDECTECTIONSESSION, List.class, long.class,
+                    XC_MethodReplacement.DO_NOTHING);
+
         } catch (Exception e) {
             Logger.log("Error occured: Snapprefs doesn't currently support this version, wait for an update", e);
 
@@ -726,8 +728,7 @@ public class HookMethods implements IXposedHookInitPackageResources, IXposedHook
 				SnapContext = (Activity)methodHookParam.thisObject;
 			}
 		});
-		
-		if (screenshot == true){
+
 			
 		findAndHookMethod(Common.Class_StateBuilder, lpparam.classLoader, Common.Method_ScreenshotCount, long.class, new XC_MethodHook(){
 			@Override
@@ -735,18 +736,17 @@ public class HookMethods implements IXposedHookInitPackageResources, IXposedHook
 				param.args[0] = 0L;
 				logging("Snap Prefs: Not reporting screenshots - ScreenshotCount");
 			}
-		});	
+		});
 		findAndHookMethod(Common.Class_ScreenshotDetector, lpparam.classLoader, Common.Method_DetectionSession, List.class, long.class, XC_MethodReplacement.returnConstant(null));	
 		logging("Snap Prefs: Not reporting screenshots. DetectionSession");
 		findAndHookMethod(Common.Class_Screenshot, lpparam.classLoader, Common.Method_Screenshot, new XC_MethodReplacement(){
 			@Override
 			protected Object replaceHookedMethod(MethodHookParam param)
 					throws Throwable {
-				logging("Snap Prefs: Not reporting screenshots. Last Method");
-				return false;
-            }
-			});	
-		}
+		logging("Snap Prefs: Not reporting screenshots. Last Method");
+		return false;         }
+			});
+
 		if (hideBf == true){
 		findAndHookMethod(Common.Class_Friend, lpparam.classLoader, Common.Method_BestFriend, new XC_MethodReplacement(){
 		@Override
@@ -806,7 +806,6 @@ static void refreshPreferences() {
 					+ PACKAGE_NAME + "/shared_prefs/" + PACKAGE_NAME
 					+ "_preferences" + ".xml"));
 	prefs.reload();
-	screenshot = prefs.getBoolean("pref_key_screenshot", false);
 	fullCaption = prefs.getBoolean("pref_key_fulltext", false);
 	selectAll = prefs.getBoolean("pref_key_selectall", false);
 	selectStory = prefs.getBoolean("pref_key_selectstory", false);
@@ -857,8 +856,6 @@ static void refreshPreferences() {
 
 private void printSettings() {
 	logging("\n~~~~~~~~~~~~ SNAPPREFS SETTINGS");
-
-	logging("ScreenshotProtection: " + screenshot);
 	logging("FullCaption: " + fullCaption);
 	logging("SelectAll: " + selectAll);
 	logging("SelectStory: " + selectStory);
@@ -918,7 +915,7 @@ public void addGhost(InitPackageResourcesParam resparam){
 			layoutParams.leftMargin = px(55.0f);
 			ImageButton ghost = new ImageButton(SnapContext);
 			ghost.setBackgroundColor(0);
-			ghost.setImageDrawable(modRes.getDrawable(R.drawable.triangle));
+			ghost.setImageDrawable(mResources.getDrawable(R.drawable.triangle));
 			ghost.setScaleX((float) 0.75);
 			ghost.setScaleY((float) 0.75);
 			ghost.setOnClickListener(new View.OnClickListener() {
