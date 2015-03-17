@@ -972,7 +972,7 @@ private void saveReceivedSnap(Context context, Object receivedSnap) {
     }
 
     Date timestamp = new Date((Long) callMethod(receivedSnap, Obfuscator.SNAP_GETTIMESTAMP));
-    String filename = sender + "_" + dateFormat.format(timestamp);
+    String filename = sender + "_" + dateFormat.format(timestamp) + "___" + dateFormat.format(new Date());
 
     Bitmap image = (Bitmap) removeAdditionalInstanceField(receivedSnap, "snap_bitmap");
     String videoUri = (String) removeAdditionalInstanceField(receivedSnap, "snap_video_uri");
