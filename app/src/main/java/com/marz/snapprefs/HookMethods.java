@@ -70,7 +70,7 @@ public class HookMethods implements IXposedHookInitPackageResources, IXposedHook
 	
 	
     public static final String SNAPCHAT_PACKAGE_NAME = "com.snapchat.android";
-    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss", Locale.getDefault());
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.getDefault());
     private static XModuleResources mResources;
     
     //SNAPSHARE
