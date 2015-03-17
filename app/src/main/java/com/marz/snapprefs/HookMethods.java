@@ -950,7 +950,7 @@ public enum SnapType {
 }
 
 public enum MediaType {
-    IMAGE(".jpg"),
+    IMAGE(".png"),
     VIDEO(".mp4");
 
     private final String fileExtension;
@@ -1054,7 +1054,7 @@ private File createFileDir(String category, String sender) throws IOException {
 private static boolean saveImage(Bitmap image, File fileToSave) {
     try {
         FileOutputStream out = new FileOutputStream(fileToSave);
-        image.compress(Bitmap.CompressFormat.JPEG, 90, out);
+        image.compress(Bitmap.CompressFormat.PNG, 100, out);
         out.flush();
         out.close();
         return true;
